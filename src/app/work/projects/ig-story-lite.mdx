@@ -1,0 +1,40 @@
+---
+title: "IG Story Lite"
+publishedAt: "2026-07-04"
+summary: "A lightweight, browser-based Instagram Story simulator that lets users upload images, auto-advance through timed story reels, and swipe to switch content."
+images:
+  - "/images/projects/ig-story-lite/cover-01.png"
+  - "/images/projects/ig-story-lite/cover-02.png"
+team:
+  - name: "Fuad Husnan"
+    role: "Frontend Developer"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://www.linkedin.com/in/fu-ad-husnan-10481a30b"
+link: "https://ig-story-lite.vercel.app/"
+---
+
+## Overview
+
+IG Story Lite is a minimalist, responsive web application designed to replicate the core viewing and sharing experience of Instagram Stories. It allows users to upload custom images, view auto-playing 3-second story slides, monitor active story counts, and seamlessly navigate between stories using touch or click gestures.
+
+## Key Features
+
+- **Story Upload & Rendering**: Enables users to quickly upload story media optimized for vertical mobile display ratios (up to 1080 x 1920 pixels).
+- **Automated Story Timer**: Each uploaded story automatically advances after 3 seconds, mimicking standard social media story playback dynamics.
+- **Interactive Navigation**: Supports tap and swipe gestures to manually skip forward, go back, or switch between story segments.
+- **Auto-Expiration & Counter**: Features local state tracking for active stories and simulates 24-hour content expiration logic.
+
+## Technologies Used
+
+- **Next.js**: Provides a modern, optimized React framework for fast page rendering and component routing.
+- **React Hooks & State Management**: Handles real-time playback timers, active story indexing, and dynamic media uploads.
+- **Tailwind CSS**: Delivers responsive styling tailored for mobile-first viewport experiences.
+- **Vercel**: Hosts and deploys the production web application with continuous integration.
+
+## Challenges and Learnings
+
+Building a responsive, timer-based story viewer required precise management of state transitions and lifecycle cleanup in React. Managing automatic progression timers while allowing uninterrupted user interaction (such as pausing on tap or manually swiping) provided valuable insights into handling asynchronous state and mobile touch events cleanly.
+
+## Outcome
+
+IG Story Lite offers a fast, zero-install web proof-of-concept for lightweight media presentation. It serves as an accessible reference implementation for social media story UI patterns on the web.

@@ -1,0 +1,187 @@
+---
+title: "Library VI — Library Management System (Laravel + Filament)"
+publishedAt: "2025-06-12"
+summary: "A two-interface library management system: a public portal for browsing and reading books and a Filament-powered admin dashboard for managing books and categories. Built with Laravel 12, soft-deletes, slug-based routing, and a small test suite to protect public behavior."
+team:
+  - name: "Fuad Husnan"
+    role: "Full Stack Developer"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://www.linkedin.com/in/fu-ad-husnan-10481a30b"
+  - name: "Rian Ardiansyah"
+    role: "Contributor"
+    avatar: "/images/people/rian.png"
+    linkedIn: "https://github.com/Vyxian27"
+  - name: "Angga Ferdianto"
+    role: "Contributor"
+    avatar: "/images/people/user.png"
+  - name: "Jian Safitri"
+    role: "Contributor"
+    avatar: "/images/people/user.png"
+link: "https://github.com/Dirga36/app-perpustakaan-V2"
+---
+
+## Overview
+
+Library VI is a focused, opinionated school library application that solves two common problems at once: providing a clean, guest-accessible catalog for students and visitors, and offering a lightweight admin surface for librarians to maintain the catalog. The public portal emphasizes discoverability (search, category filters, sorting), while the admin area uses Filament 5 to provide fast CRUD and restore workflows for soft-deleted records.
+
+## Key Features
+
+- Public catalog (no authentication)
+  - Browse books with title, author, ISBN, category, cover, and year
+  - Free-text search across title, authorName, and ISBN
+  - Category filter, validated as integers and backed by Category records
+  - Multiple sorts: latest/oldest, title A–Z/Z–A, publication year asc/desc
+  - Pagination (12 items) with query string persistence so filters survive navigation
+  - Book detail pages use slug route binding and show related books from the same category
+
+- Admin dashboard (Filament)
+  - Filament 5 resources for Books and Categories
+  - Create/Update/Delete with soft deletes and restore capabilities
+  - Form schemas and table views for validation, filtering, and sorting
+  - Admin area mounted at /admin and protected by Filament auth
+
+- Robust data behavior
+  - Slug generation integrated in model lifecycle hooks for both Book and Category
+  - Slug uniqueness enforced against soft-deleted records
+  - Book uses slug route-key (`getRouteKeyName(): 'slug'`) for SEO-friendly URLs
+
+## Technologies Used
+
+- Backend: Laravel Framework 12.x (PHP 8.2+)
+- Admin panel: Filament 5
+- Frontend: Blade templates + Tailwind CSS, built with Vite
+- Database: MySQL / MariaDB (migrations included)
+- Testing: PHPUnit (feature tests for public portal)
+- Notable packages: filament/filament, openplain/filament-shadcn-theme
+
+## Architecture (high level)
+
+```markdown
+- Public portal (guest)
+  - Routes (examples):
+    - GET / -> PublicHomeController@index (route name: public.home)
+    - GET /books -> PublicBookController@index (route name: public.books.index)
+    - GET /books/{book} -> PublicBookController@show (route name: public.books.show)
+    - GET /about -> PublicHomeController@about (route name: public.about)
+  - Views use the portal layout component `x-layouts.public-portal` located at resources/views/components/layouts/public-portal.blade.php
+```
+
+```markdown
+- Admin dashboard
+  - Mounted at /admin and backed by Filament resources (app/Filament/Resources)
+  - Resources implement separate form/table schema classes and Filament pages
+```
+
+How it fits together: public requests hit the Public* controllers, which query Eloquent models (Book, Category), eager-load relations, and render Blade views. Admin interactions are handled by Filament resources and the Filament UI.
+
+## How it works (details worth noting)
+
+- Search normalization
+  - The catalog controller normalizes and trims search input, limits it to 120 chars, and protects queries from whitespace abuse.
+
+- Category filtering
+  - Only integer category IDs >= 1 are accepted; invalid IDs or non-existent categories are ignored to avoid confusing behavior.
+
+- Sorting
+  - A whitelist prevents arbitrary SQL from the sort parameter; invalid sorts fall back to 'latest'.
+
+- Pagination
+  - Results paginate at 12 per page and preserve the query string to maintain filter state.
+
+- Slug uniqueness
+  - Both Book and Category generate slugs when saving.
+  - The uniqueness algorithm checks existing records including soft-deleted ones (via withTrashed()) and appends a numeric suffix when needed.
+
+- Route model binding
+  - Book uses slug route binding by overriding getRouteKeyName(), so URLs are friendly and durable: /books/the-great-gatsby
+
+## Project structure (excerpts)
+
+```
+app/
+  Http/Controllers/          # PublicHomeController, PublicBookController
+  Models/                    # Book.php, Category.php
+  Filament/Resources/        # Books & Categories admin resources
+config/                      # filament.php etc.
+database/
+  migrations/                # schema definitions for books, categories, users
+  factories/                 # BookFactory, CategoryFactory
+resources/
+  views/
+    components/layouts/
+      public-portal.blade.php
+    public-portal/           # catalog and book detail views
+routes/
+  web.php                    # public route definitions (public.* names)
+tests/
+  Feature/PublicPortalTest.php
+composer.json
+```
+
+## Running locally
+
+Short path from clone to running (assumes PHP, Composer, Node/NPM are installed):
+
+```bash
+git clone https://github.com/Dirga36/app-perpustakaan-V2.git
+cd app-perpustakaan-V2
+
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+
+npm install
+npm run dev
+
+# in another terminal
+php artisan serve
+```
+
+- Public portal: ```http://127.0.0.1:8000```
+- Admin dashboard: ```http://127.0.0.1:8000/admin``` (create an admin user with php artisan make:filament-user)
+
+## Tests
+
+- Run the full suite:
+  php artisan test
+
+- Public portal tests:
+  php artisan test tests/Feature/PublicPortalTest.php
+
+The repository includes a focused feature test suite that asserts:
+- Public pages return 200 OK
+- Catalog search/filter/sort behavior and view variables
+- Invalid filter handling (safe defaults)
+- Soft-deleted books are not accessible via detail pages
+
+## Challenges & learnings
+
+- Stable slugs: ensuring slugs remain unique even when records are soft-deleted avoids accidental URL collisions when records are restored.
+- Safety-first public inputs: validating category IDs as integers and restricting sort options prevents accidental data exposure or broken queries from malformed query strings.
+- Small code surface: by keeping the public controllers lean and using Eloquent's when() clauses plus eager loading, the app avoids common N+1 problems while remaining easy to reason about.
+
+## Outcome
+
+Library VI provides a practical, maintainable library platform suitable for educational contexts and small libraries. It prioritizes predictable public behavior and an efficient admin UX for librarians using Filament. The project demonstrates how to combine Laravel model lifecycle hooks, careful request validation, and a modest test suite to create a reliable experience.
+
+## Resources
+
+- Source code: https://github.com/Dirga36/app-perpustakaan-V2
+- Public portal layout: resources/views/components/layouts/public-portal.blade.php
+- Public routes: routes/web.php (route names follow public.*)
+- Key models: app/Models/Book.php, app/Models/Category.php
+- Tests: tests/Feature/PublicPortalTest.php
+- Filament docs: https://filamentphp.com/docs
+- Laravel docs: https://laravel.com/docs
+
+## Credits
+
+Contributors:
+- Rian Ardiansyah (IannxGusion)
+- Angga Ferdianto
+- Jian Safitri
+
+Repository author: Dirga36 (Fuad)
+
+---
