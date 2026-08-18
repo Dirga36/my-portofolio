@@ -96,7 +96,7 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/fuad-husnan",
   },
   intro: {
     display: true,
