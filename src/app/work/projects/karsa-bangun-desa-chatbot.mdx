@@ -1,0 +1,105 @@
+---
+title: "Karsa — Bangun Desa Chatbot"
+publishedAt: "2026-08-19"
+summary: "A conversational assistant for the Karsa Bangun Desa project — a TypeScript-based chatbot deployed on Vercel that provides an approachable, themed chat interface (Beige Glitch) with a lightweight, responsive UI."
+team:
+  - name: "Fuad Husnan"
+    role: "Author & Maintainer"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://github.com/Dirga36"
+link: "https://karsa-bangun-desa-chatbot-beige-gli.vercel.app/"
+---
+
+## Overview
+
+Karsa — Bangun Desa Chatbot is an interactive web chatbot project built with TypeScript and deployed on Vercel. The project focuses on delivering an accessible and visually distinctive chat experience (Beige Glitch theme) for community-oriented interactions, information discovery, and simple conversational workflows. The public demo is available at the link above and the full source code is hosted on GitHub.
+
+## Key Features
+
+- Real-time chat UI with message history and user-friendly affordances
+- Responsive UI, mobile-first layout
+- TypeScript-first codebase for maintainability and type safety
+- Lightweight state management sufficient for conversation flows
+- Deployed to Vercel for instant previews and continuous deployment from the GitHub repo
+- Simple developer experience: clone, install, run dev server
+
+## Technologies Used
+
+- Language: TypeScript (primary)
+- Frontend framework: React (codebase uses TypeScript + React tooling)
+- Styling: CSS / Tailwind (project includes CSS)
+- Hosting / deployment: Vercel (live demo link)
+- Tooling: Node, npm/yarn, common frontend dev tooling
+
+## Architecture (high level)
+
+- Client-side application
+  - Chat UI composed of components for message list, input, and controls
+  - Local state holds conversation history and UI state
+- Integrations
+  - (Optional) External APIs or serverless functions can be used to power replies or knowledge retrieval; check the repository for any API routes or function code
+- Deployment
+  - Hosted on Vercel for static/SSR builds and continuous deployment from the GitHub repository
+
+## How it works (what to look for in the repo)
+
+- Conversation handling
+  - Messages are stored in component state (or lightweight store) and rendered in the chat view
+  - Submissions trigger async handlers that call the bot logic (local or remote)
+- UI behavior
+  - Input includes accessibility considerations (labels, keyboard interactions)
+  - Message list auto-scrolls on new messages
+- Styling
+  - The Beige Glitch visual style is applied via CSS and utility classes for consistent theming
+
+## Project structure (examples — see the repo for exact layout)
+
+- src/
+  - components/           # Chat UI components (Message, Input, Header)
+  - pages/ or app/        # Next.js pages or React app entry points (if present)
+  - styles/               # Theme/CSS files (Beige Glitch styles)
+  - utils/                # Helpers for formatting, API callers
+- public/                 # Static assets, images, theme assets
+- package.json            # Scripts and dependencies
+- README.md               # Project overview and contributor info
+
+## Running locally
+
+Quick start (adjust if the project uses yarn or pnpm):
+
+```bash
+git clone https://github.com/Dirga36/karsa-bangun-desa-chatbot-beige-glitch.git
+cd karsa-bangun-desa-chatbot-beige-glitch
+npm install
+npm run dev
+# open http://localhost:3000 (or the port shown by the dev server)
+```
+
+If the repo includes a Vercel configuration or serverless functions, follow any additional setup steps in the repository README (API keys, environment variables).
+
+## Tests
+
+Check the repository for any test setup (Jest, Vitest, Playwright). If present, run:
+
+```bash
+npm test
+```
+
+## Challenges & learnings
+
+- Keeping conversation state manageable while avoiding overengineering
+- Delivering a fast developer loop with TypeScript and Vercel previews
+
+## Outcome
+
+Karsa provides a friendly, themed chat interface suitable for demonstration, community interaction, and rapid iteration. The TypeScript-first approach helps keep the codebase approachable and maintainable.
+
+## Resources
+
+- Source code: https://github.com/Dirga36/karsa-bangun-desa-chatbot-beige-glitch
+- Live demo: https://karsa-bangun-desa-chatbot-beige-gli.vercel.app/
+
+## Credits
+
+- Repository owner and maintainer: Dirga36
+- Contributors: see the GitHub repository for full contributor list

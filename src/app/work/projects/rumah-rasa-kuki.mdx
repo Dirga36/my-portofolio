@@ -1,0 +1,131 @@
+---
+title: "Rumah Rasa Kuki — E-Commerce Web App for Premium Handcrafted Cookies"
+publishedAt: "2025-08-11"
+summary: "A modern web storefront and digital catalog for an artisanal home bakery specializing in handcrafted, preservative-free premium cookies and gift hampers. Built with React, TypeScript, Vite, and Tailwind CSS, featuring item catalog browsing, category tagging, batch stock tracking indicators, and custom gift hampers selection."
+team:
+  - name: "Fuad Husnan"
+    role: "Frontend Developer"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://www.linkedin.com/in/fu-ad-husnan-10481a30b"
+link: "https://rumah-rasa-kuki.lovable.app"
+---
+
+## Overview
+
+Rumah Rasa Kuki (Rasa Rumah Cookies) is a dedicated web application for an artisanal home bakery that delivers handcrafted, freshly baked cookies made without preservatives. The platform addresses the need for a warm, visually engaging, and responsive digital storefront where customers can easily explore available fresh batches, dietary-specific selections (such as gluten-free cookies), and custom gift hampers.
+
+Designed with a warm "Kejutan Rasa Rumah" home-baked aesthetic, the web app emphasizes product freshness by highlighting real-time stock limits per batch, detailed ingredient highlights, net weight options, and seamless direct-ordering workflows.
+
+## Key Features
+
+- **Interactive Product Catalog**
+  - Browse premium cookie selections including *Nastar Spesial Pure Butter*, *Kastengel Roombutter Keju*, *Mini Choco Chip Sea Salt*, *Uji Matcha Cheese Breakable*, and *Earl Grey Lemon Zest Crunch*.
+  - Displays product prices, net weights (e.g., 200g–500g), and detailed taste descriptions.
+
+- **Fresh Batch Stock Indicators & Highlights**
+  - Real-time display of limited batch stock badges (e.g., "Sisa 15 toples").
+  - Visual flags for special categories such as **Favorit** and **Gluten free**.
+
+- **Dietary & Specialty Filtering**
+  - Dedicated tags and filters for dietary preferences (e.g., gluten-free options made from local mocaf flour or rolled oats).
+
+- **Specialized Gift Hampers Portal**
+  - Curated gift section (e.g., *Signature Hampers Trio Classic*) featuring multi-jar hardbox packaging and personalized handwritten gift card options.
+
+- **Mobile-First & Responsive Interface**
+  - Optimized layout with crisp product photography, smooth navigation header, and quick action buttons for seamless browsing across desktop and mobile devices.
+
+## Technologies Used
+
+- **Frontend Core**: React, TypeScript, Vite
+- **Styling & UI**: Tailwind CSS, Lucide Icons, Radix UI / shadcn/ui components
+- **Routing**: React Router
+- **Development & Prototyping**: Lovable.dev, Node.js, npm
+
+## Architecture (high level)
+
+```markdown
+- Client Application (Single Page Application)
+  - Routes:
+    - / -> Home / Landing Page (Hero, Value Propositions, Featured Items)
+    - /katalog -> Full Catalog View with Filterable Categories
+    - /hampers -> Dedicated Gift Packages & Hampers Customization
+  - Navigation & UI Shell:
+    - Shared layout with header navigation and footer component
+    - Reusable card grid for dynamically rendering product items and stock tags
+
+```
+
+How it fits together: The client SPA uses component-based rendering powered by React and styled with Tailwind CSS. State handling manages active catalog filters and modal or navigation actions, providing fast client-side rendering without full page reloads.
+
+## How it works (details worth noting)
+
+* **Product Data Schema**
+* Each item is modeled with attributes including ID, name, price, weight, description, stock remaining, badge indicators (`Favorit`, `Gluten free`), and imagery.
+
+
+* **Visual Hierarchy & Branding**
+* Styled around warm, inviting color tones that reflect a home-baked feeling while remaining clean and modern.
+
+
+* **Responsive Grid System**
+* Utilizes CSS Grid and Flexbox via Tailwind CSS to automatically scale product display grids from single-column on mobile to multi-column cards on larger screens.
+
+
+
+## Project structure (excerpts)
+
+```
+src/
+  components/        # Header, Footer, ProductCard, HeroSection, UI components
+  pages/             # Index.tsx, Katalog.tsx, Hampers.tsx
+  data/              # Catalog items list and details
+  lib/               # Utility functions (cn helper, formatting)
+public/              # Logo, icons, and static assets
+index.html
+package.json
+tailwind.config.ts
+vite.config.ts
+
+```
+
+## Running locally
+
+To set up and run the project on your local machine:
+
+```bash
+# Clone the repository
+git clone https://github.com/Dirga36/rumah-rasa-kuki.git
+cd rumah-rasa-kuki
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+```
+
+Open your browser and navigate to `http://localhost:8080` (or the port specified in the terminal).
+
+## Challenges & learnings
+
+* **Designing for Food E-Commerce**: Creating a layout where imagery, stock scarcity badges, and product descriptions harmonize without cluttering the screen.
+* **Component Reusability**: Building modular card components that effortlessly handle varying badge counts (e.g., combinations of stock numbers, "Favorit", and "Gluten free").
+* **Performance**: Optimizing high-resolution food imagery loading for fast initial page load times.
+
+## Outcome
+
+Rumah Rasa Kuki presents an inviting, high-converting digital storefront tailored for an artisanal home bakery. It provides customers with an intuitive browsing experience for fresh-batch handcrafted cookies and hampers while demonstrating modern React component architecture and Tailwind CSS design principles.
+
+## Resources
+
+* **Live Application**: [https://rumah-rasa-kuki.lovable.app](https://rumah-rasa-kuki.lovable.app)
+* **Source Code**: [https://github.com/Dirga36/rumah-rasa-kuki](https://github.com/Dirga36/rumah-rasa-kuki)
+* **Tailwind CSS Documentation**: [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
+* **React Documentation**: [https://react.dev](https://react.dev)
+
+## Credits
+
+* **Repository Author**: Dirga36 (Fuad)
+* **Design & Platform Prototyping**: Lovable
