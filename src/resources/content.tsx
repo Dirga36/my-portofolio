@@ -159,26 +159,78 @@ const about: About = {
       {
         title: "Next.js",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>Building next gen apps with Next.js.</>
         ),
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
           {
             name: "Next.js",
             icon: "nextjs",
           },
           {
-            name: "Supabase",
-            icon: "supabase",
+            name: "React",
+            icon: "react",
           },
         ],
         // optional: leave the array empty if you don't want to display images
         images: [
           {
             src: "/images/projects/project-01/cover-04.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/og/nextjs-landing-page.png",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "Vercel",
+        description: (
+          <>Deploy any frontend apps with Vercel</>
+        ),
+        tags: [
+          {
+            name: "Vercel",
+            icon: "vercel",
+          },
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/og/dashboard-4_1.avif",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "Copilot",
+        description: (
+          <>Build anything with GitHub Copilot</>
+        ),
+        tags: [
+          {
+            name: "Copilot",
+            icon: "copilot",
+          },
+          {
+            name: "GitHub",
+            icon: "github",
+          },
+          {
+            name: "Visual Studio Code",
+            icon: "vscode",
+          },
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/og/Copilot.webp",
             alt: "Project image",
             width: 16,
             height: 9,
