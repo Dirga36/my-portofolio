@@ -15,78 +15,254 @@ link: "https://karsa-bangun-desa-chatbot-beige-gli.vercel.app/"
 
 ## Overview
 
-Karsa Bangun Desa Chatbot is an interactive web chatbot project built with TypeScript and deployed on Vercel. The project focuses on delivering an accessible and visually distinctive chat experience (Beige Glitch theme) for community-oriented interactions, information discovery, and simple conversational workflows. The public demo is available at the link above and the full source code is hosted on GitHub.
+Karsa Bangun Desa Chatbot is an interactive web chatbot project built with TypeScript and deployed on Vercel. The project focuses on delivering an accessible and visually distinctive chat experience for community-oriented interactions, information discovery, and simple conversational workflows. The public demo is available at the link above and the full source code is hosted on GitHub.
+
+---
+
+## Table of Contents
+
+- [Overview & Capabilities](#overview--capabilities)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Prerequisites](#prerequisites)
+- [Installation & Setup](#installation--setup)
+- [Environment Configuration](#environment-configuration)
+- [Quick Start & Basic Usage](#quick-start--basic-usage)
+- [n8n AI Chatbot Configuration](#n8n-ai-chatbot-configuration)
+- [Available Scripts](#available-scripts)
+- [Design Theme & Styling](#design-theme--styling)
+- [Deployment](#deployment)
+- [Credits](#credits)
+
+---
 
 ## Key Features
 
-- Real-time chat UI with message history and user-friendly affordances
-- Responsive UI, mobile-first layout
-- TypeScript-first codebase for maintainability and type safety
-- Lightweight state management sufficient for conversation flows
-- Deployed to Vercel for instant previews and continuous deployment from the GitHub repo
-- Simple developer experience: clone, install, run dev server
+- **Asisten Digital Chat Widget**: Native client-side embed powered by `@n8n/chat` connecting to custom n8n AI webhook orchestrators with specialized rural advisory knowledge.
+- **Natural Tones Design System**: High-contrast, accessibility-first theme utilizing Forest Green (`#166534`), Earth Gold (`#D97706`), and Warm Neutral Canvas (`#FAFAF9`).
+- **Direct WhatsApp Dispatch**: Instant hotline dispatch formatted for village heads, BUMDes leaders, and CSR partners with pre-filled consultation templates.
+- **Modular Component Architecture**: Includes full-suite components for rapid landing page composition:
+  - `HeroSection`: Focused digital assistant launchpad with interactive prompt triggers.
+  - `AboutSection`: Institution profile with 5-Pillar Pentahelix framework.
+  - `ServicesSection`: Comprehensive service modules, deliverables, and 4-stage roadmaps.
+  - `EvidenceResearchSection`: Spatial GIS case studies (Bojong Kulur & Simpang Gaung Riau).
+  - `IdmAssessmentWidget`: Interactive 6-indicator IDM readiness calculator.
+  - `ContactSection`: Secretariat directory and consultation booking form.
+  - `Footer`: Official institutional contacts and social links.
 
-## Technologies Used
+---
 
-- Language: TypeScript (primary)
-- Frontend framework: React (codebase uses TypeScript + React tooling)
-- Styling: CSS / Tailwind (project includes CSS)
-- Hosting / deployment: Vercel (live demo link)
-- Tooling: Node, npm/yarn, common frontend dev tooling
+## Tech Stack
 
-## Architecture (high level)
+| Layer | Technologies |
+|---|---|
+| **Framework** | [Next.js 15+ (App Router)](https://nextjs.org/) |
+| **UI Library** | [React 19](https://react.dev/) |
+| **Language** | [TypeScript 5.9](https://www.typescriptlang.org/) |
+| **Styling Engine** | [Tailwind CSS v4](https://tailwindcss.com/) with `@tailwindcss/postcss` & `tw-animate-css` |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **Animations** | [Motion](https://motion.dev/) |
+| **AI Integration** | [n8n Chat SDK](https://www.npmjs.com/package/@n8n/chat) / [@google/genai](https://www.npmjs.com/package/@google/genai) |
 
-- Client-side application
-  - Chat UI composed of components for message list, input, and controls
-  - Local state holds conversation history and UI state
-- Integrations
-  - (Optional) External APIs or serverless functions can be used to power replies or knowledge retrieval; check the repository for any API routes or function code
-- Deployment
-  - Hosted on Vercel for static/SSR builds and continuous deployment from the GitHub repository
+---
 
-## How it works (what to look for in the repo)
+## Project Structure
 
-- Conversation handling
-  - Messages are stored in component state (or lightweight store) and rendered in the chat view
-  - Submissions trigger async handlers that call the bot logic (local or remote)
-- UI behavior
-  - Input includes accessibility considerations (labels, keyboard interactions)
-  - Message list auto-scrolls on new messages
-- Styling
-  - The Beige Glitch visual style is applied via CSS and utility classes for consistent theming
-
-## Project structure (examples — see the repo for exact layout)
-
-- src/
-  - components/           # Chat UI components (Message, Input, Header)
-  - pages/ or app/        # Next.js pages or React app entry points
-  - styles/               # Theme/CSS files
-  - utils/                # Helpers for formatting, API callers
-- public/                 # Static assets, images, theme assets
-- package.json            # Scripts and dependencies
-- README.md               # Project overview and contributor info
-
-## Running locally
-
-Quick start (adjust if the project uses yarn or pnpm):
-
-```bash
-git clone https://github.com/Dirga36/karsa-bangun-desa-chatbot-beige-glitch.git
-cd karsa-bangun-desa-chatbot-beige-glitch
-npm install
-npm run dev
-# open http://localhost:3000 (or the port shown by the dev server)
+```text
+├── app/
+│   ├── favicon.ico              # Institution browser favicon
+│   ├── globals.css              # Global styles, Tailwind v4 tokens & glass utilities
+│   ├── layout.tsx               # Root Next.js layout with font imports & metadata
+│   └── page.tsx                 # Main entry page assembling active sections
+├── components/
+│   ├── AboutSection.tsx         # Pentahelix collaboration framework & vision
+│   ├── ContactSection.tsx       # Consultation request form & secretariat directory
+│   ├── EvidenceResearchSection.tsx # Empirical case studies (Bojong Kulur & Riau)
+│   ├── Footer.tsx               # Institutional footer & social links
+│   ├── HeroSection.tsx          # Digital Assistant hero & query interface
+│   ├── IdmAssessmentWidget.tsx  # Interactive IDM readiness diagnostic calculator
+│   ├── N8nChatWidget.tsx        # Dynamic n8n chat client loader & webhook bridge
+│   ├── Navbar.tsx               # Sticky header navigation & mobile drawer
+│   └── ServicesSection.tsx      # Master plan & cooperative consulting roadmap
+├── lib/
+│   └── utils.ts                 # Styling utilities (clsx & tailwind-merge)
+├── hooks/
+│   └── use-mobile.ts            # Responsive breakpoint hook
+├── .env.example                 # Template for environment variables
+├── metadata.json                # AI Studio application manifest & permissions
+├── next.config.ts               # Next.js configuration
+├── package.json                 # Project dependencies and script commands
+├── postcss.config.mjs           # PostCSS configuration for Tailwind v4
+└── tsconfig.json                # TypeScript compiler configuration
 ```
 
-If the repo includes a Vercel configuration or serverless functions, follow any additional setup steps in the repository README (API keys, environment variables).
+---
 
-## Tests
+## Prerequisites
 
-Check the repository for any test setup (Jest, Vitest, Playwright). If present, run:
+Before running the application locally, ensure you have:
 
-```bash
-npm test
+- **Node.js**: `v20.x` or higher (LTS recommended)
+- **npm** (v9+) or **pnpm** / **yarn**
+- Modern web browser (Chrome, Edge, Firefox, Safari)
+
+---
+
+## Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Dirga36/karsa-bangun-desa-chatbot-beige-glitch
+   cd karsa-bangun-desa-chatbot-beige-glitch
+   ```
+
+2. **Install project dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables:**
+   Copy the example configuration file:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+4. **Start the local development server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open the application:**
+   Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Environment Configuration
+
+Create a `.env.local` (optional) file at the root of your project:
+
+```env
+# Google Gemini AI API key (for server-side GenAI features and used by AI Studio if you plan build with AI studio)
+GEMINI_API_KEY=[YOUR_GEMINI_API_KEY]
+
+# APP_URL: The URL where this applet is hosted.
+# AI Studio automatically injects this at runtime with the Cloud Run service URL.
+# Used for self-referential links, OAuth callbacks, and API endpoints.
+APP_URL="MY_APP_URL"
 ```
+
+> **Security Note:** Never commit `.env.local` or secret keys into version control. Server-side keys must remain private and accessed strictly via `process.env.GEMINI_API_KEY`.
+
+---
+
+## Quick Start & Basic Usage
+
+### Embedding the n8n Chatbot Widget
+
+To integrate the digital assistant in any Next.js component:
+
+```tsx
+import React from 'react';
+import N8nChatWidget from '@/components/N8nChatWidget';
+
+export default function CustomPage() {
+  return (
+    <main className="min-h-screen bg-stone-50">
+      <section className="p-8">
+        <h1 className="text-2xl font-bold text-stone-900">
+          Konsultasi Desa Mandiri
+        </h1>
+        <p className="text-stone-600">
+          Klik widget chat di pojok kanan bawah untuk memulai sesi tanya-jawab.
+        </p>
+      </section>
+
+      {/* Mounts the dynamic n8n AI chat client */}
+      <N8nChatWidget />
+    </main>
+  );
+}
+```
+
+---
+
+## n8n AI Chatbot Configuration
+
+The digital assistant is managed inside `/components/N8nChatWidget.tsx`. You can customize the chat title, welcome greeting, primary brand color, and webhook target:
+
+```typescript
+// components/N8nChatWidget.tsx
+createChat({
+  webhookUrl: '[YOUR_N8N_WEBHOOK_URL]', // e.g. https://n8n.example.com/webhook/.../chat
+  initialMessages: [
+    'Sampurasun! 👋 Saya Asisten Digital Karsa Bangun Desa.',
+    'Ada yang bisa saya bantu terkait Master Plan Desa Wisata/Agro atau BUMDes hari ini?',
+  ],
+  i18n: {
+    en: {
+      title: 'Asisten Karsa Bangun Desa',
+      subtitle: 'Pendamping Digital Desa Mandiri',
+      footer: 'Pendampingan Berbasis Bukti & Kearifan Lokal',
+      getStarted: 'Mulai Percakapan',
+      inputPlaceholder: 'Tulis pertanyaan Anda seputar desa...',
+    },
+  },
+  style: {
+    primaryColor: '#166534', // Brand Forest Green
+  },
+});
+```
+
+---
+
+## Available Scripts
+
+In the project root directory, you can run:
+
+- `npm run dev` Starts the development server on `http://localhost:3000`
+- `npm run build` Builds the production-ready optimized application in `.next/`
+- `npm run start` Starts the production Next.js server
+- `npm run lint` Executes ESLint to validate syntax and code standards
+
+---
+
+## Design Theme & Styling
+
+The application adheres to the **Natural Tones** visual identity:
+
+- **Typography**: `Plus Jakarta Sans` with high legibility and geometric structure.
+- **Color Palette**:
+  - `Forest Green`: `#166534` (`bg-forest`, `forest-green`)
+  - `Earth Gold`: `#D97706` (`bg-earth`, `earth-gold`)
+  - `Warm Background`: `#FAFAF9` / `#F5F5F4`
+  - `High-Contrast Text`: `#1C1917` / `#44403C`
+- **Surface Elevation**: Rounded pill containers (`rounded-full`), soft ambient shadows (`shadow-soft`), and frosted glass cards (`.glass-card`).
+
+---
+
+## Deployment
+
+### Deploy to Google Cloud Run / Container Environments
+
+1. Build the production application:
+   ```bash
+   npm run build
+   ```
+2. Start the service (bound to port 3000):
+   ```bash
+   npm run start
+   ```
+
+### Deploy to Vercel
+
+The repository is fully compatible with Vercel zero-configuration deployments:
+1. Push your code to GitHub/GitLab.
+2. Import the repository in [Vercel](https://vercel.com).
+3. Set any necessary environment variables under **Project Settings > Environment Variables**.
+4. Click **Deploy**.
+
+---
 
 ## Challenges & learnings
 
@@ -99,10 +275,13 @@ Karsa provides a friendly, themed chat interface suitable for demonstration, com
 
 ## Resources
 
-- Source code: https://github.com/Dirga36/karsa-bangun-desa-chatbot-beige-glitch
-- Live demo: https://karsa-bangun-desa-chatbot-beige-gli.vercel.app/
+- Source code: [https://github.com/Dirga36/karsa-bangun-desa-chatbot-beige-glitch](https://github.com/Dirga36/karsa-bangun-desa-chatbot-beige-glitch)
+- Live demo: [https://karsa-bangun-desa-chatbot-beige-gli.vercel.app](https://karsa-bangun-desa-chatbot-beige-gli.vercel.app)
 
 ## Credits
 
-- Repository owner and maintainer: Dirga36
-- Contributors: see the GitHub repository for full contributor list
+- **Repository owner and maintainer**: Dirga36
+- **Design & Platform Prototyping**: Google AI Studio
+- **Institution**: **Karsa Bangun Desa** (Bojongsoang, Kabupaten Bandung, Jawa Barat, Indonesia).
+- **Inquiries & Partnerships**: `karsabangundesa@gmail.com` | WhatsApp: `0857-7000-3549` / `0852-8000-3548`.
+- **License**: Proprietary / Educational Open Development. All institutional frameworks and case study materials are protected by Karsa Bangun Desa.
