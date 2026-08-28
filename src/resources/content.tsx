@@ -61,7 +61,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Full-Stack Developer ⫸ Transforming Complex Business Logic Into Seamless User Experiences</>,
+  headline: <>Transforming Complex Business Logic Into Seamless User Experiences</>,
   featured: {
     display: true,
     title: (
@@ -77,7 +77,7 @@ const home: Home = {
   },
   subline: (
     <>
-      Engineering end-to-end web applications with robust backend architecture and intuitive React interfaces.
+      I'm {person.firstName}, a {person.role}, I used to Engineering end-to-end web applications with robust backend architecture and intuitive interfaces.
     </>
   ),
 };
@@ -103,7 +103,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Hello! I am a Fullstack Developer focused on building modern web applications that are fast, interactive, and impactful. Leveraging expertise in the React ecosystem, and scalable backend architectures using Supabase and Vercel, I bridge precise interface design with reliable system performance. I also utilize workflow automation tools like Docker and n8n and implement robust cybersecurity foundations to ensure that every solution I design is not only resilient and secure but also delivers an intuitive user experience.
+        Hello! I am a {person.role} focused on building modern web applications that are fast, interactive, and impactful. Leveraging expertise in the React ecosystem, and scalable backend architectures using Supabase and Vercel, I bridge precise interface design with reliable system performance. I also utilize workflow automation tools like Docker and n8n and implement robust cybersecurity foundations to ensure that every solution I design is not only resilient and secure but also delivers an intuitive user experience.
       </>
     ),
   },
@@ -276,13 +276,13 @@ const about: About = {
         ],
       },
       {
-        title: "n8n",
+        title: "N8N",
         description: (
-          <>Create workflow automation platform that allows you to connect different apps, services, and AI models with n8n.</>
+          <>Create workflow automation platform that allows you to connect different apps, services, and AI models with N8N.</>
         ),
         tags: [
           {
-            name: "n8n",
+            name: "N8N",
             icon: "n8n",
           },
         ],

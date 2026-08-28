@@ -29,6 +29,7 @@ import {
   SiSupabase,
   SiReact,
   SiVercel,
+  SiN8N
 } from "react-icons/si";
 
 import { 
@@ -73,6 +74,7 @@ export const iconLibrary: Record<string, IconType> = {
   figma: SiFigma,
   react: SiReact,
   vercel: SiVercel,
+  n8n: SiN8N,
   facebook: FaFacebook,
   pinterest: FaPinterest,
   whatsapp: FaWhatsapp,
