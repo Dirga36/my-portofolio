@@ -31,9 +31,16 @@ import {
   SiVercel,
 } from "react-icons/si";
 
-import { VscCopilot,
+import { 
+  VscCopilot,
   VscVscode
 } from "react-icons/vsc";
+
+import { 
+  FaLaravel,
+  FaPhp,
+  FaDocker
+} from "react-icons/fa";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
 
@@ -74,6 +81,9 @@ export const iconLibrary: Record<string, IconType> = {
   instagram: FaInstagram,
   copilot: VscCopilot,
   vscode: VscVscode,
+  laravel: FaLaravel,
+  php: FaPhp,
+  docker: FaDocker
 };
 
 export type IconLibrary = typeof iconLibrary;

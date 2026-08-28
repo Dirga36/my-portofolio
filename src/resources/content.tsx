@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Fuad",
   lastName: "Husnan",
   name: `Fuad Husnan`,
-  role: "Frontend Engineer",
+  role: "Full Stack Developer",
   avatar: "/images/avatar.png",
   email: "workfuad369@gmail.com",
   location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -61,23 +61,23 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building fast, accessible web experiences</>,
+  headline: <>Full-Stack Developer ⫸ Transforming Complex Business Logic Into Seamless User Experiences</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Organize It</strong>{" "}
+        <strong className="ml-4">Chatbot</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
         </Text>
       </Row>
     ),
-    href: "/work/organize-it",
+    href: "/work/karsa-bangun-desa-chatbot",
   },
   subline: (
     <>
-      I'm {person.firstName}, a {person.role.toLowerCase()}, I do believe all designs can be come to life.
+      Engineering end-to-end web applications with robust backend architecture and intuitive React interfaces.
     </>
   ),
 };
@@ -103,9 +103,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I'm a {person.location.split("/")[1]?.replace("_", " ")}-based {person.role.toLowerCase()} with a passion for transforming complex challenges
-        into simple, elegant design solutions. My work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Hello! I am a Fullstack Developer focused on building modern web applications that are fast, interactive, and impactful. Leveraging expertise in the React ecosystem, and scalable backend architectures using Supabase and Vercel, I bridge precise interface design with reliable system performance. I also utilize workflow automation tools like Docker and n8n and implement robust cybersecurity foundations to ensure that every solution I design is not only resilient and secure but also delivers an intuitive user experience.
       </>
     ),
   },
@@ -119,11 +117,10 @@ const about: About = {
         role: "WordPress Developer",
         achievements: [
           <>
-            Optimizing web storage through specially designed Plugin.
+            Optimized web storage through specially designed Plugin.
           </>,
         ],
         images: [
-          // optional: leave the array empty if you don't want to display images
           {
             src: "/images/gallery/pkl-tel-u.jpeg",
             alt: "Telkom University Internship Certificate",
@@ -171,7 +168,6 @@ const about: About = {
             icon: "react",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
         images: [
           {
             src: "/images/projects/project-01/cover-04.jpg",
@@ -190,7 +186,7 @@ const about: About = {
       {
         title: "Vercel",
         description: (
-          <>Deploy any frontend apps with Vercel</>
+          <>Deploy any frontend apps with Vercel.</>
         ),
         tags: [
           {
@@ -198,7 +194,6 @@ const about: About = {
             icon: "vercel",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
         images: [
           {
             src: "/images/og/dashboard-4_1.avif",
@@ -211,7 +206,7 @@ const about: About = {
       {
         title: "Copilot",
         description: (
-          <>Build anything with GitHub Copilot</>
+          <>Build anything with GitHub Copilot.</>
         ),
         tags: [
           {
@@ -227,10 +222,73 @@ const about: About = {
             icon: "vscode",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
         images: [
           {
             src: "/images/og/Copilot.webp",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "Laravel",
+        description: (
+          <>Build robust web applications, MVPs, or SaaS with Laravel.</>
+        ),
+        tags: [
+          {
+            name: "Laravel",
+            icon: "laravel",
+          },
+          {
+            name: "PHP",
+            icon: "php",
+          },
+        ],
+        images: [
+          {
+            src: "/images/og/1625808060_laravel-banner1.webp",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "Docker",
+        description: (
+          <>Dackages any application and everything it needs into a single portable environtment with Docker.</>
+        ),
+        tags: [
+          {
+            name: "Docker",
+            icon: "docker",
+          },
+        ],
+        images: [
+          {
+            src: "/images/og/Docker-Logo-2013-2015.png",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "n8n",
+        description: (
+          <>Create workflow automation platform that allows you to connect different apps, services, and AI models with n8n.</>
+        ),
+        tags: [
+          {
+            name: "n8n",
+            icon: "n8n",
+          },
+        ],
+        images: [
+          {
+            src: "/images/og/N8n-logo-new.svg",
             alt: "Project image",
             width: 16,
             height: 9,
