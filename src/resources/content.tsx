@@ -325,23 +325,28 @@ const gallery: Gallery = {
   images: [
     {
       src: "/images/gallery/dev-fest-bandung-2025.jpeg",
-      alt: "image",
+      alt: "dev-fest-bandung-2025",
       orientation: "vertical",
     },
     {
       src: "/images/gallery/pkl-tel-u.jpeg",
-      alt: "image",
+      alt: "pkl-tel-u",
       orientation: "horizontal",
     },
     {
       src: "/images/gallery/bbpvp-bandung.jpeg",
-      alt: "image",
+      alt: "gen-ai-class-bbpvp-bandung",
       orientation: "horizontal",
     },
     {
       src: "/images/gallery/catounament-twibbon-template.png",
-      alt: "image",
+      alt: "catounament-twibbon-template",
       orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/ngoding.jpeg",
+      alt: "pov-ngoding",
+      orientation: "horizontal",
     },
   ],
 };
