@@ -258,7 +258,7 @@ const about: About = {
       {
         title: "Docker",
         description: (
-          <>Dackages any application and everything it needs into a single portable environtment with Docker.</>
+          <>Package any application and its dependencies into a single, portable Docker environment.</>
         ),
         tags: [
           {
