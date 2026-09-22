@@ -324,7 +324,7 @@ const gallery: Gallery = {
   description: `A photo collection by ${person.name}`,
   images: [
     {
-      src: "rbsdcfuodmlgqqobekqq.supabase.co/storage/v1/object/public/bucket1/mycms/bbpvp-bandung.jpeg",
+      src: "/images/gallery/dev-fest-bandung-2025.jpeg",
       alt: "dev-fest-bandung-2025",
       orientation: "vertical",
     },
@@ -334,7 +334,7 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/bbpvp-bandung.jpeg",
+      src: "/bbpvp-bandung.jpeg",
       alt: "gen-ai-class-bbpvp-bandung",
       orientation: "horizontal",
     },

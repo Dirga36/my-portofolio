@@ -16,6 +16,12 @@ const nextConfig = {
         hostname: "www.google.com",
         pathname: "**",
       },
+      {
+        protocol: 'https',
+        hostname: 'rbsdcfuodmlgqqobekqq.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/bucket1/mycms/**',
+      },
     ],
   },
   sassOptions: {
