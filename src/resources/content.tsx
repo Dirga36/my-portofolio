@@ -324,7 +324,7 @@ const gallery: Gallery = {
   description: `A photo collection by ${person.name}`,
   images: [
     {
-      src: "https://rbsdcfuodmlgqqobekqq.supabase.co/storage/v1/object/public/bucket1/mycms/bbpvp-bandung.jpeg",
+      src: "rbsdcfuodmlgqqobekqq.supabase.co/storage/v1/object/public/bucket1/mycms/bbpvp-bandung.jpeg",
       alt: "dev-fest-bandung-2025",
       orientation: "vertical",
     },
