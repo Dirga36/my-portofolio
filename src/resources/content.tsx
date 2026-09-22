@@ -334,7 +334,7 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/bbpvp-bandung.jpeg",
+      src: "/images/gallery/bbpvp-bandung.jpeg",
       alt: "gen-ai-class-bbpvp-bandung",
       orientation: "horizontal",
     },
